@@ -1,0 +1,233 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Created by AWS Lambda",
+    "version" : "2023-07-14T19:35:26Z",
+    "title" : "csm-data"
+  },
+  "host" : "oxiktfha7b.execute-api.eu-west-2.amazonaws.com",
+  "basePath" : "/default",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/csmGetParticipantId" : {
+      "get" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        },
+        "security" : [ {
+          "BasicAuth" : [ ]
+        } ],
+        "x-amazon-apigateway-integration" : {
+          "type" : "aws",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-2:841044393207:function:csmGetParticipantId/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "requestTemplates" : {
+            "application/json" : "{\r\n  \"bucket\" : \"csmdata\",\r\n  \"file\": \"getIDs.json\"\r\n}"
+          },
+          "passthroughBehavior" : "when_no_match",
+          "contentHandling" : "CONVERT_TO_TEXT"
+        }
+      }
+    },
+    "/csmagentcurrency" : {
+      "get" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        },
+        "security" : [ {
+          "BasicAuth" : [ ]
+        } ],
+        "x-amazon-apigateway-integration" : {
+          "type" : "aws",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-2:841044393207:function:loadcsmdata/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "requestTemplates" : {
+            "application/json" : "{\n    \"bucket\":\"csmdata\",\n    \"file\":\"csmagentcurrency.json\"\n}"
+          },
+          "passthroughBehavior" : "when_no_templates",
+          "contentHandling" : "CONVERT_TO_TEXT"
+        }
+      }
+    },
+    "/csmagents" : {
+      "get" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        },
+        "security" : [ {
+          "BasicAuth" : [ ]
+        } ],
+        "x-amazon-apigateway-integration" : {
+          "type" : "aws",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-2:841044393207:function:loadcsmdata/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "requestTemplates" : {
+            "application/json" : "{\n    \"bucket\":\"csmdata\",\n    \"file\":\"csmagent.json\"\n}"
+          },
+          "passthroughBehavior" : "when_no_templates",
+          "contentHandling" : "CONVERT_TO_TEXT"
+        }
+      }
+    },
+    "/csmagentselectionorder" : {
+      "get" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        },
+        "security" : [ {
+          "BasicAuth" : [ ]
+        } ],
+        "x-amazon-apigateway-integration" : {
+          "type" : "aws",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-2:841044393207:function:loadcsmdata/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "requestTemplates" : {
+            "application/json" : "{\n    \"bucket\":\"csmdata\",\n    \"file\":\"csmagentselectionorder.json\"\n}"
+          },
+          "passthroughBehavior" : "when_no_templates",
+          "contentHandling" : "CONVERT_TO_TEXT"
+        }
+      }
+    },
+    "/participant" : {
+      "get" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        },
+        "security" : [ {
+          "BasicAuth" : [ ]
+        } ],
+        "x-amazon-apigateway-integration" : {
+          "type" : "aws",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-2:841044393207:function:loadcsmdata/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "requestTemplates" : {
+            "application/json" : "{\n    \"bucket\":\"csmdata\",\n    \"file\":\"participant.json\"\n}"
+          },
+          "passthroughBehavior" : "when_no_templates",
+          "contentHandling" : "CONVERT_TO_TEXT"
+        }
+      }
+    },
+    "/processingentity" : {
+      "get" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration" : {
+          "type" : "aws",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-2:841044393207:function:loadcsmdata/invocations",
+          "responses" : {
+            "default" : {
+              "statusCode" : "200"
+            }
+          },
+          "requestTemplates" : {
+            "application/json" : "{\n    \"bucket\":\"csmdata\",\n    \"file\":\"processingentity.json\"\n}"
+          },
+          "passthroughBehavior" : "when_no_templates",
+          "contentHandling" : "CONVERT_TO_TEXT"
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "BasicAuth" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header",
+      "x-amazon-apigateway-authtype" : "custom",
+      "x-amazon-apigateway-authorizer" : {
+        "type" : "request",
+        "authorizerUri" : "arn:aws:apigateway:eu-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-2:841044393207:function:csmBasicAuth/invocations",
+        "authorizerResultTtlInSeconds" : 0,
+        "identitySource" : "method.request.header.Authorization"
+      }
+    }
+  },
+  "definitions" : {
+    "Empty" : {
+      "type" : "object",
+      "title" : "Empty Schema"
+    }
+  },
+  "x-amazon-apigateway-gateway-responses" : {
+    "UNAUTHORIZED" : {
+      "statusCode" : 401,
+      "responseParameters" : {
+        "gatewayresponse.header.WWW-Authenticate" : "'Basic'"
+      },
+      "responseTemplates" : {
+        "application/json" : "{\"message\":$context.error.messageString}"
+      }
+    }
+  }
+}

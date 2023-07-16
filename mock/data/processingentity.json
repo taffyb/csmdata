@@ -1,0 +1,36 @@
+{
+  "settings": [
+    {
+      "logicalUniqueKey": "001",
+      "processingEntity": "001",
+      "activeFromDate": "2022-05-19T14:01:33.877Z",
+      "source": "manual",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdBy": "init-script",
+      "payload": {
+        "className": "com.iconsolutions.ipf.dynamicsettings.domain.ProcessingEntity",
+        "clearingSystemIdentification": null,
+        "bic": "UBSCHZZ80A",
+        "debtorAgentName": "UBS Switzerland AG",
+        "postalAddressStreetName": "Bahnhofstrasse",
+        "postalAddressBuildingNumber": "45",
+        "postalAddressPostalCode": "8098",
+        "postalAddressTownName": "Zürich",
+        "postalAddressCountryCode": "CH",
+        "processingEntityName": "UBS Switzerland AG",
+        "processingEntityType": "Mandator ID",
+        "onUsCurrencyList": [
+          {
+            "currency": "CHF"
+          }
+        ],
+        "suspenseAccountList": [
+          {
+            "currency": "CHF"
+          }
+        ]
+      }
+    }
+  ]
+}

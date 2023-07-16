@@ -1,0 +1,100 @@
+{
+  "settings": [
+    {
+      "logicalUniqueKey": "001-DMTR-INST-CHF",
+      "processingEntity": "001",
+      "activeFromDate": "2022-05-19T15:21:18.163Z",
+      "source": "manual",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdBy": "init-script",
+      "payload": {
+        "className": "com.iconsolutions.ipf.dynamicsettings.domain.CsmAgentSelectionOrder",
+        "paymentType": "DMTR",
+        "serviceLevel": "INST",
+        "transferCurrency": "CHF",
+        "csmAgentOptions": [
+          {
+            "order": 1,
+            "csmAgentId": "UbsCh"
+          },
+          {
+            "order": 2,
+            "csmAgentId": "SIC"
+          }
+        ]
+      }
+    },
+    {
+      "logicalUniqueKey": "001-ACTR-INST-CHF",
+      "processingEntity": "001",
+      "activeFromDate": "2022-05-19T15:21:18.163Z",
+      "source": "manual",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdBy": "init-script",
+      "payload": {
+        "className": "com.iconsolutions.ipf.dynamicsettings.domain.CsmAgentSelectionOrder",
+        "paymentType": "ACTR",
+        "serviceLevel": "INST",
+        "transferCurrency": "CHF",
+        "csmAgentOptions": [
+          {
+            "order": 1,
+            "csmAgentId": "UbsCh"
+          }
+        ]
+      }
+    },
+    {
+      "logicalUniqueKey": "001-BKTR-INST-CHF",
+      "processingEntity": "001",
+      "activeFromDate": "2022-05-19T15:21:18.163Z",
+      "source": "manual",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdBy": "init-script",
+      "payload": {
+        "className": "com.iconsolutions.ipf.dynamicsettings.domain.CsmAgentSelectionOrder",
+        "paymentType": "BKTR",
+        "serviceLevel": "INST",
+        "transferCurrency": "CHF",
+        "csmAgentOptions": [
+          {
+            "order": 1,
+            "csmAgentId": "UbsCh"
+          },
+          {
+            "order": 2,
+            "csmAgentId": "SIC"
+          }
+        ]
+      }
+    },
+    {
+      "logicalUniqueKey": "001-OTHR-INST-CHF",
+      "processingEntity": "001",
+      "activeFromDate": "2022-05-19T15:21:18.163Z",
+      "source": "manual",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdBy": "init-script",
+      "payload": {
+        "className": "com.iconsolutions.ipf.dynamicsettings.domain.CsmAgentSelectionOrder",
+        "paymentType": "OTHR",
+        "serviceLevel": "INST",
+        "transferCurrency": "CHF",
+        "csmAgentOptions": [
+          {
+            "order": 1,
+            "csmAgentId": "UbsCh"
+          },
+          {
+            "order": 2,
+            "csmAgentId": "SIC"
+          }
+        ]
+      }
+    }
+  ]
+}

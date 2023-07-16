@@ -1,0 +1,50 @@
+{
+  "settings": [
+    {
+      "logicalUniqueKey": "001-UbsCh",
+      "processingEntity": "001",
+      "activeFromDate": "2022-05-19T14:01:33.877Z",
+      "source": "manual",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdBy": "init-script",
+      "payload": {
+        "className": "com.iconsolutions.ipf.dynamicsettings.domain.CsmAgent",
+        "csmAgentId": "UbsCh",
+        "csmAgentBic": "UBSWCHZH80A",
+        "csmAgentName": "UBS CH OnUs",
+        "csmAgentType": "OnUs",
+        "csmParticipantIdentifierType": "SICIID",
+        "csmAgentConnector": "internal",
+        "csmAgentConnectorAddress": null,
+        "csmAgentMessageStandards": null,
+        "onUsCSM": true,
+        "higherParticipantLimitNotAllowed": false,
+        "instantPayments": true
+      }
+    },
+    {
+      "logicalUniqueKey": "001-SIC",
+      "processingEntity": "001",
+      "activeFromDate": "2022-05-19T14:01:33.877Z",
+      "source": "manual",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdBy": "init-script",
+      "payload": {
+        "className": "com.iconsolutions.ipf.dynamicsettings.domain.CsmAgent",
+        "csmAgentId": "SIC",
+        "csmAgentBic": "UBSWCHZH80A",
+        "csmAgentName": "SIC Instant Payments Service",
+        "csmAgentType": "ACH",
+        "csmParticipantIdentifierType": "SICIID",
+        "csmAgentConnector": "ICG",
+        "csmAgentConnectorAddress": null,
+        "csmAgentMessageStandards": null,
+        "onUsCSM": false,
+        "higherParticipantLimitNotAllowed": false,
+        "instantPayments": true
+      }
+    }
+  ]
+}

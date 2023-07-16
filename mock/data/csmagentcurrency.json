@@ -1,0 +1,69 @@
+{
+  "settings": [
+    {
+      "logicalUniqueKey": "001-SIC-CHF",
+      "processingEntity": "001",
+      "activeFromDate": "2022-05-20T14:33:05.903Z",
+      "source": "manual",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdBy": "init-script",
+      "payload": {
+        "className": "com.iconsolutions.ipf.dynamicsettings.domain.CsmAgentCurrency",
+        "csmAgentId": "SIC",
+        "transferCurrency": "CHF",
+        "countries": null,
+        "bics": null,
+        "limits": [
+          {
+            "limitType": "MAX_TRANSACTION_VALUE",
+            "amount": 20000
+          }
+        ],
+        "businessCalendarId": null,
+        "openingTime": null,
+        "closingTime": null,
+        "cutOffTime": null,
+        "openingExtension": null,
+        "coverSerialMethod": null,
+        "settlementDays": 0,
+        "settlementAccountType": "SACC",
+        "settlementAccountId": "02060000000999010000",
+        "settlementAccountCurrency": "CHF",
+        "settlementAccountBic": "UBSWCHZH80A",
+        "bilateralBlock": false,
+        "settlementAccountMirror": null
+      }
+    },
+    {
+      "logicalUniqueKey": "001-UbsCh-CHF",
+      "processingEntity": "001",
+      "activeFromDate": "2022-05-20T14:33:05.903Z",
+      "source": "manual",
+      "status": "ACTIVE",
+      "version": 1,
+      "createdBy": "init-script",
+      "payload": {
+        "className": "com.iconsolutions.ipf.dynamicsettings.domain.CsmAgentCurrency",
+        "csmAgentId": "UbsCh",
+        "transferCurrency": "CHF",
+        "countries": null,
+        "bics": null,
+        "limits": null,
+        "businessCalendarId": null,
+        "openingTime": null,
+        "closingTime": null,
+        "cutOffTime": null,
+        "openingExtension": null,
+        "coverSerialMethod": null,
+        "settlementDays": 0,
+        "settlementAccountType": null,
+        "settlementAccountId": null,
+        "settlementAccountCurrency": null,
+        "settlementAccountBic": null,
+        "bilateralBlock": false,
+        "settlementAccountMirror": null
+      }
+    }
+  ]
+}
