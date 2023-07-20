@@ -8,6 +8,7 @@ MATCH (n) DETACH DELETE n;
 
 CREATE CONSTRAINT u_processingEntity_id IF NOT EXISTS FOR (pe:ProcessingEntity) REQUIRE pe.id IS UNIQUE;
 CREATE CONSTRAINT u_CSMAgent_id IF NOT EXISTS FOR (agent:CSMAgent) REQUIRE agent.id IS UNIQUE;
+CREATE CONSTRAINT u_FI_id IF NOT EXISTS FOR (fi:FinancialInstitution) REQUIRE (fi.bic, fi.iid) IS UNIQUE;
 CREATE CONSTRAINT u_processingEntity IF NOT EXISTS FOR (pe2:ProcessingEntity) REQUIRE (pe2.id, pe2.name) IS UNIQUE;
 CREATE CONSTRAINT u_currency_isoCode  IF NOT EXISTS FOR (c:Currency) REQUIRE c.isoCode IS UNIQUE;
 
@@ -29,10 +30,11 @@ WITH value.settings as csmAgents
 UNWIND csmAgents as csmAgent
 	MERGE (a:CSMAgent{id:csmAgent.logicalUniqueKey})
 	ON CREATE SET 
-		a.name = csmAgent.payload.csmAgentName,
-		a.type = csmAgent.payload.csmAgentType,
-		a.bic  = csmAgent.payload.csmAgentBic,
-		a.agentId  = csmAgent.payload.csmAgentId
+		a.name 		= csmAgent.payload.csmAgentName,
+		a.type 		= csmAgent.payload.csmAgentType,
+		a.bic  		= csmAgent.payload.csmAgentBic,
+		a.agentId  	= csmAgent.payload.csmAgentId,
+		a.isInstant	= csmAgent.payload.instantPayments
 	WITH a, csmAgent
 	MATCH (pe:ProcessingEntity{id:csmAgent.processingEntity})
 	MERGE (pe)-[:USES]->(a);
@@ -57,20 +59,29 @@ UNWIND csmAgentCurrencies as csmAgentCurrency
 //WITH value.settings as csmAgents
 //UNWIND csmAgentCurrencies as csmAgentCurrency
 
-//Load CSMParticipants
+//Load CSMParticipants as FinancialInstitutions
 CALL apoc.load.json('https://'+$auth.user+':'+$auth.password+'@oxiktfha7b.execute-api.eu-west-2.amazonaws.com/default/participant')
 YIELD value
-WITH value.settings as csmParticipants
-UNWIND csmParticipants as csmParticipant
-	MERGE (p:CSMParticipant{id:csmParticipant.payload.csmParticipantIdentifier})
+WITH value.settings as FinancialInstitutions
+UNWIND FinancialInstitutions as FinancialInstitution
+	MERGE (fi:FinancialInstitution{id:FinancialInstitution.payload.csmParticipantIdentifier})
 	ON CREATE SET 
-		p.name     = csmParticipant.payload.participantName,
-		p.csmAgent = csmParticipant.payload.csmAgentId
-	WITH p, csmParticipant
-	MATCH (csmAgent:CSMAgent{agentId:csmParticipant.payload.csmAgentId})
-	MERGE (p)-[of:PARTICIPANT_OF]->(csmAgent)
-		SET of.type = csmParticipant.payload.participantType;
-		
-
-	
-	
+		fi.name     			= FinancialInstitution.payload.participantName,
+		fi.branchId     		= FinancialInstitution.payload.industryFields.branchId,
+		fi.headOffice     		= FinancialInstitution.payload.industryFields.headOffice,
+		fi.iidType  	   		= FinancialInstitution.payload.industryFields.iidType,
+		fi.sic     				= FinancialInstitution.payload.industryFields.sic,
+		fi.euroSic     			= FinancialInstitution.payload.industryFields.euroSic,
+		fi.sicBic     			= FinancialInstitution.payload.industryFields.sicBic,
+		fi.sicIid     			= FinancialInstitution.payload.industryFields.sicIid,
+		fi.newIid     			= FinancialInstitution.payload.industryFields.newIid,
+		fi.domicileAddress  	= FinancialInstitution.payload.domicileAddress,
+		fi.city     			= FinancialInstitution.payload.participantCity,
+		fi.postalCode     		= FinancialInstitution.payload.postalCode,
+		fi.postalAddress    	= FinancialInstitution.payload.postalAddress,
+		fi.participantCountry   = FinancialInstitution.payload.participantCountry
+		//fi.csmAgent 			= FinancialInstitution.payload.csmAgentId
+	WITH fi, FinancialInstitution
+	MERGE (csmAgent:CSMAgent{agentId:FinancialInstitution.payload.csmAgentId})
+	MERGE (fi)-[of:PARTICIPANT_OF]->(csmAgent)
+		SET of.type = FinancialInstitution.payload.participantType;
