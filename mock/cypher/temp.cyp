@@ -1,9 +1,9 @@
 
-// 
+// OnUs or SIC
 :param params =>({processingEntityId:'001', sourceBic:"UBSWCHZH93A",  targetBic:"UBSWCHZH70A", csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 
 
 //via SIC
-:param params =>({processingEntityId:'001', sourceBic:"UBSWCHZH80V",  targetBic:"SNBZCHZZXXX", sla:"INST" }); 
+:param params =>({processingEntityId:'001', sourceBic:"UBSWCHZH80V",  targetBic:"SNBZCHZZXXX", , csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 
 
 //via OnUs
 :param params =>({processingEntityId:'001',sourceBic:"UBSWCHZH83B", targetBic:"UBSWCHZH81M",sla:"INST",csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 

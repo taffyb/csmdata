@@ -53,11 +53,7 @@ UNWIND csmAgentCurrencies as csmAgentCurrency
 		SET s.limitType = limit.limitType,
 			s.limit		= limit.amount;
 			
-//Load CSM Agent Selection Order
-//CALL //apoc.load.json('https://'+$auth.user+':'+$auth.password+'@oxiktfha7b.execute-api.eu-west-2.amazonaws.com/default/csmagentselectionorder')
-//YIELD value
-//WITH value.settings as csmAgents
-//UNWIND csmAgentCurrencies as csmAgentCurrency
+
 
 //Load CSMParticipants as FinancialInstitutions
 CALL apoc.load.json('https://'+$auth.user+':'+$auth.password+'@oxiktfha7b.execute-api.eu-west-2.amazonaws.com/default/participant')
@@ -66,6 +62,7 @@ WITH value.settings as FinancialInstitutions
 UNWIND FinancialInstitutions as FinancialInstitution
 	MERGE (fi:FinancialInstitution{id:FinancialInstitution.payload.csmParticipantIdentifier})
 	ON CREATE SET 
+		fi.processingEntity     = FinancialInstitution.processingEntity,
 		fi.name     			= FinancialInstitution.payload.participantName,
 		fi.branchId     		= FinancialInstitution.payload.industryFields.branchId,
 		fi.headOffice     		= FinancialInstitution.payload.industryFields.headOffice,
@@ -80,8 +77,9 @@ UNWIND FinancialInstitutions as FinancialInstitution
 		fi.postalCode     		= FinancialInstitution.payload.postalCode,
 		fi.postalAddress    	= FinancialInstitution.payload.postalAddress,
 		fi.participantCountry   = FinancialInstitution.payload.participantCountry
-		//fi.csmAgent 			= FinancialInstitution.payload.csmAgentId
 	WITH fi, FinancialInstitution
 	MERGE (csmAgent:CSMAgent{agentId:FinancialInstitution.payload.csmAgentId})
 	MERGE (fi)-[of:PARTICIPANT_OF]->(csmAgent)
 		SET of.type = FinancialInstitution.payload.participantType;
+
+)
