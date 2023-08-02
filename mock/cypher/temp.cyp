@@ -16,36 +16,6 @@
 
 :param params =>({csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 
 
-
-MATCH (source:FinancialInstitution{sicBic:$params.sourceBic})-[:PARTICIPANT_OF]->(:CSMAgent)<-[:USES]-(:ProcessingEntity{id:$params.processingEntityId})
-MATCH (target:FinancialInstitution{sicBic:$params.targetBic})
-MATCH paths=allShortestPaths((source)-[*]-(target))
-UNWIND paths as path
-WITH source, target, path,
-reduce(p=0, x IN [ n IN nodes(path) WHERE NOT (labels(n)[0]='CSMAgent' OR labels(n)[0]='FinancialInstitution')]| p+ 1) as not_agent_or_fi ,
-reduce(p=[], x IN [ n IN nodes(path)  ] | p+ [labels(x)[0]+ "("+CASE WHEN labels(x)[0]='FinancialInstitution' THEN x.sicBic WHEN labels(x)[0]='CSMAgent' THEN x.name END+")"]) as node_names,
-[ n IN nodes(path)  WHERE labels(n)[0]='CSMAgent' ] as csms,
-[ n IN nodes(path)  WHERE labels(n)[0]='CSMAgent' AND (NOT $params.csmSelectionOrder.serviceLevel="INST" OR n.isInstant=true) ] as ip_csms
-WITH source, target, path, not_agent_or_fi, node_names, csms, ip_csms
-CALL {
-    WITH source, target, path, not_agent_or_fi, node_names, csms, ip_csms
-    UNWIND csms as csm
-    MATCH (csm)-[s:SUPPORTS]->(cur:Currency{isoCode:$params.csmSelectionOrder.transferCurrency})
-    RETURN collect(csm) as cur_csms
-}
-WITH source, target, path, not_agent_or_fi, node_names, csms, ip_csms, cur_csms
-//Filter out paths that use non INST CSMs when routing IP 
-//  OR include nodes that are not CSMAgents or Financial Institutions
-//  OR include CSMAgents that don't support the selected currency
-WHERE size(csms)=size(ip_csms) AND size(csms)=size(cur_csms) AND not_agent_or_fi=0
-WITH source, target, path, csms, node_names, $params.csmSelectionOrder.csmAgentOptions as csmOrders
-// for each csm in the path add the selection order from the passed parameters
-UNWIND csms as csm
-WITH source, target, path, node_names, reduce(p=0, x IN [ n IN csmOrders WHERE n.csmAgentId=csm.agentId ] | p+ x.order) as csmOrder ,csms
-RETURN DISTINCT length(path) as hops ,path, csmOrder as order ORDER BY csmOrder
- 
-
-
 ================================================
 CREATE (a1:A{id:1})
 CREATE (a2:A{id:2})

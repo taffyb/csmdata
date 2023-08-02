@@ -1,0 +1,10 @@
+.route {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  list-style: none;
+  margin: 0;
+}
+

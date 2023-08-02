@@ -1,0 +1,1 @@
+MATCH (csm:CSMAgent) RETURN collect({agentId:csm.agentId,name:csm.name,type:csm.type,isInstant:csm.isInstant})as csmAgents
