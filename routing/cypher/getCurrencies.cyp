@@ -1,0 +1,1 @@
+MATCH (c:Currency) RETURN collect({isoCode:c.isoCode}) as currencies

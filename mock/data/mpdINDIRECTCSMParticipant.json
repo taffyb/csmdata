@@ -1,0 +1,30 @@
+[{
+"MPDKey":"5811897",
+"Owner.Name":"CITIBANK COLOMBIA",
+"Address":"EDIFICIO CALLE CRA 9A",
+"postalCode":"111831",
+"Owner.City":"BOGOTA",
+"ISOCountry":"CO",
+"Country":"COLOMBIA",
+"HolderMPDKey":"275623",
+"MktSerId":"114240",
+"Service":"CHI",
+"CurrencyCode":"USD",
+"holder.Name":"CITIBANK N.A.",
+"holder.City":"NEW YORK"
+},
+{
+"MPDKey":"5811897",
+"Owner.Name":"CITIBANK COLOMBIA",
+"Address":"EDIFICIO CALLE CRA 9A",
+"postalCode":"111831",
+"Owner.City":"BOGOTA",
+"ISOCountry":"CO",
+"Country":"COLOMBIA",
+"HolderMPDKey":"4761920",
+"MktSerId":"114240",
+"Service":"CHI",
+"CurrencyCode":"USD",
+"holder.Name":"CITIBANK N.A.",
+"holder.City":"LONDON"
+}]

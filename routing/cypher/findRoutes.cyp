@@ -1,5 +1,5 @@
 //
-// CYPHER statement to retrieve all possible routes between a source Participant and a target Participant
+// CYPHER statement to retrieve all possible routes between a source  and a target Financial Institution
 // It is assumed that prior to calling source and target accounts have been converted into Participant references
 //
 // Find all paths between source and target
@@ -19,31 +19,17 @@
 //
 
 
-
-
-MATCH (source:CSMParticipant{sicBic:$params.sourceBic})
-MATCH (target:CSMParticipant{sicBic:$params.targetBic})
+MATCH (source:FinancialInstitution)-[]->(:CSMParticipant{id:$params.sourceId})
+MATCH (target:FinancialInstitution)-[]->(:CSMParticipant{id:$params.targetId})
 MATCH paths=allShortestPaths((source)-[*]-(target))
 UNWIND paths as path
-WITH source, target, path,
-[ n IN nodes(path)  WHERE labels(n)[0]='CSMAgent' ] as csms,
-reduce(p=0, x IN [ n IN nodes(path) WHERE NOT (labels(n)[0]='CSMAgent' OR labels(n)[0]='CSMParticipant')]| p+ 1) as not_agent_or_p ,
-reduce(p=[], x IN [ n IN nodes(path)  ] | p+ [labels(x)[0]+ "("+CASE WHEN labels(x)[0]='CSMParticipant' THEN x.sicBic WHEN labels(x)[0]='CSMAgent' THEN x.name END+")"]) as node_names,
-[ n IN nodes(path)  WHERE labels(n)[0]='CSMAgent' AND (NOT $params.csmSelectionOrder.serviceLevel="INST" OR n.isInstant=true) ] as ip_csms
-WITH source, target, path, not_agent_or_p, node_names, csms, ip_csms
-CALL {
-    WITH source, target, path, not_agent_or_p, node_names, csms, ip_csms
-    UNWIND csms as csm
-    MATCH (csm)-[s:SUPPORTS]->(cur:Currency{isoCode:$params.csmSelectionOrder.transferCurrency})
-    RETURN collect(csm) as cur_csms
-}
-WITH source, target, path, not_agent_or_p, node_names, csms, ip_csms, cur_csms
-//Filter out paths that use non INST CSMs when routing IP 
-//  OR include nodes that are not CSMAgents or Financial Institutions
-//  OR include CSMAgents that don't support the selected currency
-WHERE size(csms)=size(ip_csms) AND size(csms)=size(cur_csms) AND not_agent_or_fi=0
-WITH source, target, path, csms, node_names, $params.csmSelectionOrder.csmAgentOptions as csmOrders
-// for each csm in the path add the selection order from the passed parameters
-UNWIND csms as csm
-WITH source, target, path, node_names, reduce(p=0, x IN [ n IN csmOrders WHERE n.csmAgentId=csm.agentId ] | p+ x.order) as csmOrder ,csms
-RETURN DISTINCT length(path) as hops ,node_names, csmOrder as order ORDER BY csmOrder
+    WITH path,
+        (size([n IN nodes(path) WHERE (labels(n)[0]='Currency' OR labels(n)[0]='ProcessingEntity')])=0) as only_relevant_nodes,
+        (CASE WHEN $params.csmSelectionOrder.serviceLevel ="INST" THEN
+        ($params.csmSelectionOrder.serviceLevel ="INST" AND reduce(p=true, x IN [ n IN nodes(path) WHERE labels(n)[0]='CSMAgent' ] | p = p AND (CASE WHEN x.isInstant IS NOT NULL THEN x.isInstant ELSE false END)))
+        ELSE true END) as meets_sla
+
+    WHERE only_relevant_nodes AND meets_sla
+    WITH path,
+        ("["+reduce(p="", x IN [ n IN nodes(path)  ] | p+ labels(x)[0]+(CASE WHEN labels(x)[0]="CSMParticipant" THEN "<"+x.id+">" WHEN labels(x)[0]="CSMAgent" THEN "<"+x.name+">" ELSE "" END)+", ")+"]") as node_names
+RETURN DISTINCT length(path) as hops, path, node_names

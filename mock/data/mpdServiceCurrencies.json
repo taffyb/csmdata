@@ -1,0 +1,926 @@
+[{
+"Service":"ERP",
+"ServiceName":"STEP1",
+"CurrencyCode":"EUR"
+},
+{
+"Service":"FED",
+"ServiceName":"Fedwire",
+"CurrencyCode":"USD",
+"CountryCode":"US"
+},
+{
+"Service":"FIN",
+"ServiceName":"SWIFT Connected"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"PLN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MRO"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"NZD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"OMR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"PAB"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"PEN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"PGK"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"PHP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"PKR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SDG"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"PYG"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"QAR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"RON"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"RSD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"RUB"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"RWF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SAR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SBD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SCR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"NPR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MVR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MAD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MDL"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MGA"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MKD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MMK"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MNT"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MOP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"TND"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MUR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SEK"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"NOK"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BND"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MWK"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MXN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MXV"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MYR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MZN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"NAD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"NGN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"NIO"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"MRU"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"XAU"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"UYI"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"UYU"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"UYW"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"UZS"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"VEF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"VES"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"VND"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"VUV"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"TJS"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"XAF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"UGX"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"XCD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"XOF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"XPF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"XSU"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"YER"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"ZAR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"ZMW"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"ZWL"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"WST"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SZL"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SHP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SLL"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"LYD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SOS"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SRD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SSP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"STD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"STN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"USN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SYP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"USD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"THB"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"TMT"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"TOP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"TRY"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"TTD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"TWD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"TZS"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"UAH"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SGD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"SVC"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BOV"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"DZD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BYN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BZD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CAD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CDF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CHF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CLF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CLP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BTN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"COP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BSD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CRC"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"LSL"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CUP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CVE"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CZK"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"DJF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"DKK"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"DOP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CNY"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BAM"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"AED"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"AFN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"ALL"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"AMD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"ANG"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"AOA"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"ARS"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"AUD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BWP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"AZN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"CUC"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BBD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BDT"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BGN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BHD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BIF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BMD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BOB"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"BRL"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"AWG"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"KPW"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"IQD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"IRR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"ISK"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"JMD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"EGP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"JPY"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"COU"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"KGS"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"INR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"KMF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"JOD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"KRW"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"KWD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"KYD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"KZT"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"LAK"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"LBP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"LKR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"LRD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"KHR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"FJD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"ERN"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"KES"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"EUR"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"ILS"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"FKP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"GBP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"GEL"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"GHS"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"GIP"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"GMD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"HUF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"GTQ"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"GYD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"HKD"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"HNL"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"HRK"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"HTG"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"ETB"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"GNF"
+},
+{
+"Service":"G01",
+"ServiceName":"SWIFT GPI",
+"CurrencyCode":"IDR"
+},
+{
+"Service":"PCH",
+"ServiceName":"euroSIC",
+"CurrencyCode":"EUR",
+"CountryCode":"CH"
+},
+{
+"Service":"PCH",
+"ServiceName":"euroSIC",
+"CurrencyCode":"EUR",
+"CountryCode":"LI"
+},
+{
+"Service":"PCH",
+"ServiceName":"euroSIC",
+"CurrencyCode":"EUR"
+},
+{
+"Service":"PCH",
+"ServiceName":"euroSIC",
+"CurrencyCode":"CHF",
+"CountryCode":"LI"
+},
+{
+"Service":"PCH",
+"ServiceName":"euroSIC",
+"CurrencyCode":"CHF",
+"CountryCode":"CH"
+},
+{
+"Service":"PCH",
+"ServiceName":"euroSIC",
+"CurrencyCode":"CHF"
+},
+{
+"Service":"PCH",
+"ServiceName":"euroSIC"
+},
+{
+"Service":"TGT",
+"ServiceName":"TARGET2",
+"CurrencyCode":"EUR"
+},
+{
+"Service":"SCP",
+"ServiceName":"SEPA Credit Service",
+"CurrencyCode":"CLP",
+"CountryCode":"CL"
+},
+{
+"Service":"SCP",
+"ServiceName":"SEPA Credit Service",
+"CurrencyCode":"CLF",
+"CountryCode":"CL"
+},
+{
+"Service":"SDD",
+"ServiceName":"SEPA Debit Service",
+"CurrencyCode":"EUR"
+},
+{
+"Service":"CPI",
+"ServiceName":"CHIPS",
+"CurrencyCode":"USD",
+"CountryCode":"US"
+}]

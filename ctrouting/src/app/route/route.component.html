@@ -1,6 +1,7 @@
 <ul class="route">
-  <li><app-node ></app-node></li>
-  <li>-[]-</li>
-  <li><app-node ></app-node></li>
+  <li *ngFor="let p of path; let last=last">
+    {{p.node_names}}<p></p>
+
+  </li>
 </ul>
 

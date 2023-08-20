@@ -1,1 +1,7 @@
-<div class="circle"></div>{{pathNode.name}}
+<div class="node" *ngIf="pathNode.type!='Edge'">
+  <div class="circle {{pathNode.type}}"></div>
+  {{pathNode.name}}
+</div>
+<div class="node" *ngIf="pathNode.type=='Edge'">
+  {{pathNode.name}}
+</div>

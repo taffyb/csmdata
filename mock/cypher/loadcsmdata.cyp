@@ -82,4 +82,34 @@ UNWIND CSMParticipants as Participant
 	MERGE (cp)-[of:PARTICIPANT_OF]->(csmAgent)
 		SET of.type = Participant.payload.participantType;
 
-)
+
+//Load SCT Inst CSMAgent
+MERGE (a:CSMAgent{id:"001-SCT-Inst"})
+ON CREATE SET 
+	a.name 		= "SEPA Inst Credit Transfer",
+	a.type 		= "RTGS",
+	a.agentId  	= "SCT-Inst",
+	a.isInstant	= true
+WITH a
+MATCH (pe:ProcessingEntity{id:"001"})
+MERGE (c:Currency{isoCode:"EUR"})
+MERGE (pe)-[:USES]->(a)
+MERGE (a)-[:SUPPORTS]->(c);
+
+//Load SCT Inst Participants
+CALL apoc.load.json('https://'+$auth.user+':'+$auth.password+'@oxiktfha7b.execute-api.eu-west-2.amazonaws.com/default/sct-inst')
+YIELD value
+WITH value as SCTParticipants
+UNWIND SCTParticipants as Participant
+	MERGE (cp:CSMParticipant{id:randomUUID()})
+	ON CREATE SET 
+		cp.name     			= Participant.ParticipantName,
+		cp.Bic     				= Participant.BIC,
+		cp.domicileAddress  	= Participant.Address,
+		cp.city     			= Participant.City,
+		cp.participantCountry   = Participant.Country
+	WITH cp, Participant
+	MERGE (csmAgent:CSMAgent{agentId:"SCT-Inst"})
+	MERGE (cp)-[of:PARTICIPANT_OF]->(csmAgent)
+		SET of.type = Participant.payload.participantType;
+

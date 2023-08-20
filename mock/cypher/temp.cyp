@@ -1,18 +1,18 @@
 
 // OnUs or SIC
-:param params =>({processingEntityId:'001', sourceBic:"UBSWCHZH93A",  targetBic:"UBSWCHZH70A", csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 
+:param params =>({processingEntityId:'001', sourceId:"UBSWCHZH93A",  targetId:"UBSWCHZH70A", csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 
 
 //via SIC
-:param params =>({processingEntityId:'001', sourceBic:"UBSWCHZH80V",  targetBic:"SNBZCHZZXXX", , csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 
+:param params =>({processingEntityId:'001', sourceId:"UBSWCHZH80V",  targetId:"SNBZCHZZXXX", , csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 
 
 //via OnUs
-:param params =>({processingEntityId:'001',sourceBic:"UBSWCHZH83B", targetBic:"UBSWCHZH81M",sla:"INST",csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 
+:param params =>({processingEntityId:'001',sourceId:"UBSWCHZH83B", targetId:"UBSWCHZH81M",sla:"INST",csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 
 
 //via OnUs to SIC participant
-:param params =>({processingEntityId:'001',sourceBic:"UBSWCHZH83B", targetBic:"SNBZCHZZXXX",sla:"INST"}); 
+:param params =>({processingEntityId:'001',sourceId:"UBSWCHZH83B", targetId:"SNBZCHZZXXX",sla:"INST"}); 
 
 //via OnUs to SIC participant to eurSIC participant(no longer an instant payment)
-:param params =>({processingEntityId:'001',sourceBic:"UBSWCHZH83B", targetBic:"RAIFCH22102",sla:"INST"}); 
+:param params =>({processingEntityId:'001',sourceId:"UBSWCHZH83B", targetId:"RAIFCH22102",sla:"INST"}); 
 
 :param params =>({csmSelectionOrder:{paymentType: "DMTR", serviceLevel: "INST", transferCurrency: "CHF", csmAgentOptions: [{order: 1,csmAgentId: "UbsCh"},{order: 2,csmAgentId: "SIC"}]}}); 
 

@@ -2,10 +2,59 @@
 
 
 
-<div >
+<br >
   <h2>CSM Routing POC</h2>
+<!--
+  User:<input type="text" [(ngModel)]="user"/><br>
+  Pwd:<input type="password" [(ngModel)]="pwd"/> &nbsp;
 
-  <app-route></app-route><p></p>
-  <app-route></app-route><p></p>
-  <app-route></app-route><p></p>
-</div>
+  <button type="button" (click)="onClickMe()">Save DB Login</button>
+-->
+
+  <p></p>
+  <p></p>
+  <br id="params">
+    Currency:
+    <select
+      class="form-control"
+      id="pCurrency"
+      name="pCurrency"
+      [(ngModel)]="selectedCurrency"
+    >
+      <option value="" disabled>Choose a Currency</option>
+      <option *ngFor="let c of currencies$ | async" [ngValue]="c.isoCode">{{ c.isoCode }}</option>
+    </select><br>
+    Source:
+    <select
+      class="form-control"
+      id="pSource"
+      name="pSource"
+      [(ngModel)]="sourceParticipant"
+    >
+      <option *ngFor="let sp of sourceParticipants$ | async" [ngValue]="sp">{{ sp.bankIdentifier}}</option>
+    </select><div *ngIf="sourceParticipant">{{ sourceParticipant.bankIdentifier}}</div><br>
+    Target:
+    <select
+      class="form-control"
+      id="pTarget"
+      name="pTarget"
+      [(ngModel)]="targetParticipant"
+    >
+      <option *ngFor="let tp of targetParticipants$ | async" [ngValue]="tp">{{ tp.bankIdentifier}}</option>
+    </select><br>
+    Service Level:
+    <input type="radio" [(ngModel)]="selectedServiceLevel"  name="sla" value="INST">IP
+    <input type="radio" [(ngModel)]="selectedServiceLevel"  name="sla" value="Non-INST">Non-IP
+    <p></p>
+    <button type="button" (click)="onFindPayment()">Find Payment Routes</button>
+
+  <div id="presets">
+    <label *ngFor="let p of presets">
+      <input type="radio"  [(ngModel)]="selectedPreset" name="preset" value="p" (click)="selectPreset(p)" >
+      {{p.csmSelectionOrder.paymentType}}
+    </label>
+  </div>
+<hr>
+  <p *ngFor="let r of paymentRoutes$ | async">{{r.node_names}}</p>
+  <!-- <app-route [path]="path"></app-route><p></p> -->
+
