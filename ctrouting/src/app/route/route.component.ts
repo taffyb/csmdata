@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { PathNode } from 'src/types/PathNode';
 import { PaymentRoute } from 'src/types/PaymentRoute';
 
 @Component({
@@ -8,5 +7,5 @@ import { PaymentRoute } from 'src/types/PaymentRoute';
   styleUrls: ['./route.component.css']
 })
 export class RouteComponent {
- @Input()path!:PaymentRoute[];
+ @Input()route!:PaymentRoute;
 }

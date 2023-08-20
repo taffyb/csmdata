@@ -6,17 +6,25 @@ import { RouteComponent } from './route/route.component';
 import { NodeComponent } from './node/node.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PathSegmentComponent } from './path-segment/path-segment.component';
+import { RelationshipComponent } from './relationship/relationship.component';
+import { TooltipModule } from './tooltip/tooltip.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     RouteComponent,
-    NodeComponent
+    NodeComponent,
+    PathSegmentComponent,
+    RelationshipComponent
+    // ,
+    // TooltipComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

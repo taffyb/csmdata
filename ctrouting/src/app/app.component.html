@@ -1,6 +1,6 @@
 
 
-
+<div class="poc">
 
 <br >
   <h2>CSM Routing POC</h2>
@@ -55,6 +55,9 @@
     </label>
   </div>
 <hr>
-  <p *ngFor="let r of paymentRoutes$ | async">{{r.node_names}}</p>
-  <!-- <app-route [path]="path"></app-route><p></p> -->
-
+  <p *ngFor="let r of paymentRoutes$ | async">[{{r.hops}}]&nbsp;{{r.node_names}}</p>
+<hr>
+  <div *ngFor="let r of paymentRoutes$ | async" >
+    <app-route [route]="r"></app-route><p></p>
+  </div>
+</div>

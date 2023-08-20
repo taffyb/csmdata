@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
-import { PathNode } from 'src/types/PathNode';
 import { Parameters } from 'src/types/Parameters';
 import { CSMService } from './csm.service';
 import { Currency } from 'src/types/Currency';
@@ -23,7 +22,7 @@ export class AppComponent {
   currencies$!:Observable<Currency[]>;
   sourceParticipants$!:Observable<CSMParticipant[]>;
   targetParticipants$!:Observable<CSMParticipant[]>;
-  paymentRoutes$!:Observable<PaymentRoute[]>;
+  paymentRoutes$!:Observable<PaymentRoute[]>|null;
   selectedCurrency:string="CHF";
   sourceParticipant!:CSMParticipant;
   targetParticipant!:CSMParticipant;
@@ -31,13 +30,6 @@ export class AppComponent {
 
   presets:Parameters[] = this.definePresets();
 
-  path:PathNode[] = [
-    new PathNode("1","UBSWCHZH94N","Participant"),
-    new PathNode("2","-[]-","Edge"),
-    new PathNode("3","OnUs","CSMAgent"),
-    new PathNode("4","-[]-","Edge"),
-    new PathNode("5","UBSWCHZH83B","Participant")
-  ];
 
   constructor(private csmSvc:CSMService,
     private routingSvc:RoutingService){
@@ -56,6 +48,7 @@ export class AppComponent {
     params.csmSelectionOrder.csmAgentOptions = this.csmSelectionOrder.csmAgentOptions;
 
     console.log(`Parameters: ${JSON.stringify(params,null,2)}`);
+    this.paymentRoutes$=null;
     this.paymentRoutes$= this.routingSvc.findRoutes(params);
   }
   definePresets():Parameters[]{

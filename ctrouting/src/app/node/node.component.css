@@ -8,16 +8,15 @@
   text-align: center;
   background: #fe0303;
 }
-.Participant{
-  background: #fad502;
+.FinancialInstitution{
+  background: #02e1fa;
 }
 .CSMAgent{
   background: #021ffa;
 }
-.node{
-  height: 70px;
-  float:left;
-  display:table-cell;
-  text-align: center;
-  vertical-align: middle;
+.CSMParticipant{
+  background: #48fa02;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }
