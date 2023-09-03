@@ -23,11 +23,11 @@ export class RoutingService {
 
       this.getRoutes(params).subscribe({
         next: routes=> {
-          routes.forEach(route=>{
-            this.calculateOrder(route,params);
-          })
-          routes.sort((a,b)=>a.order-b.order)
-          paymentRoutes=routes;
+          // routes.forEach(route=>{
+          //   this.calculateOrder(route,params);
+          // })
+          // routes.sort((a,b)=>a.order-b.order)
+           paymentRoutes=routes;
         },
         complete:()=>{
           observer.next(paymentRoutes);
@@ -36,24 +36,27 @@ export class RoutingService {
       });
     });
   }
-  private calculateOrder(route:PaymentRoute,params:Parameters){
-    let order=0;
-    route.path.segments.forEach(segment=>{
-      if(segment.start.labels[0]=="CSMAgent"){
-        let csmOrder=100;
-        params.csmSelectionOrder.csmAgentOptions.forEach(option=>{
-          let node=segment.start as CSMAgentNode;
-          if(option.csmAgentId==node.properties.agentId){
-            csmOrder=option.order;
-          }
-        })
-        order+=csmOrder;
-      }
-    })
-    route.order=order;
-  }
+  // private calculateOrder(route:PaymentRoute,params:Parameters){
+  //   let order=0;
+  //   route.path.segments.forEach(segment=>{
+  //     if(segment.start.labels[0]=="CSMAgent"){
+  //       let csmOrder=100;
+  //       params.csmSelectionOrder.csmAgentOptions.forEach(option=>{
+  //         let node=segment.start as CSMAgentNode;
+  //         if(option.csmAgentId==node.properties.agentId){
+  //           csmOrder=option.order;
+  //         }
+  //       })
+  //       order+=csmOrder;
+  //     }
+  //   })
+  //   route.order=order;
+  // }
   private getRoutes(params:Parameters):Observable<PaymentRoute[]>{
     let url:string = 'https://kzbx5f89j4.execute-api.eu-west-2.amazonaws.com/default/find-routes';
+
+    console.log(`${url}
+    ${JSON.stringify(params,null,2)}`);
 
     return this.http
     .post<PaymentRoute[]>(url,params)

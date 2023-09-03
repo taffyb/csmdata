@@ -18,18 +18,19 @@
 // ORDERED BY the provided CSMAgent selection order preference
 //
 
-
+//:param params =>({sourceId:"0008",  targetId:"UBSWCHZH94N"}); 
 MATCH (source:FinancialInstitution)-[]->(:CSMParticipant{id:$params.sourceId})
 MATCH (target:FinancialInstitution)-[]->(:CSMParticipant{id:$params.targetId})
 MATCH paths=allShortestPaths((source)-[*]-(target))
 UNWIND paths as path
     WITH path,
-        (size([n IN nodes(path) WHERE (labels(n)[0]='Currency' OR labels(n)[0]='ProcessingEntity')])=0) as only_relevant_nodes,
-        (CASE WHEN $params.csmSelectionOrder.serviceLevel ="INST" THEN
-        ($params.csmSelectionOrder.serviceLevel ="INST" AND reduce(p=true, x IN [ n IN nodes(path) WHERE labels(n)[0]='CSMAgent' ] | p = p AND (CASE WHEN x.isInstant IS NOT NULL THEN x.isInstant ELSE false END)))
-        ELSE true END) as meets_sla
-
-    WHERE only_relevant_nodes AND meets_sla
+        (size([n IN nodes(path) WHERE (labels(n)[0]='Currency' OR labels(n)[0]='ProcessingEntity')])=0) as only_relevant_nodes
+    WHERE only_relevant_nodes
     WITH path,
-        ("["+reduce(p="", x IN [ n IN nodes(path)  ] | p+ labels(x)[0]+(CASE WHEN labels(x)[0]="CSMParticipant" THEN "<"+x.id+">" WHEN labels(x)[0]="CSMAgent" THEN "<"+x.name+">" ELSE "" END)+", ")+"]") as node_names
+        ("["+reduce(p="", x IN [ n IN nodes(path)  ] | p+ (CASE 
+        WHEN labels(x)[0]="CSMParticipant" AND NOT x.id IS NULL THEN labels(x)[0]+"<"+x.id+"> " 
+        WHEN labels(x)[0]="CSMParticipant" AND x.id IS NULL THEN labels(x)[0]+"<Cor> " 
+        WHEN labels(x)[0]="CSMAgent" THEN labels(x)[0]+"<"+x.name+"> " 
+        WHEN labels(x)[0]="FinancialInstitution" THEN "{"+x.name+"} " 
+        ELSE "" END))+"]") as node_names
 RETURN DISTINCT length(path) as hops, path, node_names

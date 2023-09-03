@@ -39,19 +39,6 @@
 "Country":"UNITED STATES OF AMERICA",
 "MktSerId":"CITIUS33XXX",
 "MktDirect":"Y",
-"Service":"FIN"
-},
-{
-"MPDKey":"275623",
-"Name":"CITIBANK N.A.",
-"Address":"GREENWICH STREET, 388",
-"postalCode":"10013",
-"City":"NEW YORK",
-"State":"NY",
-"ISOCountry":"US",
-"Country":"UNITED STATES OF AMERICA",
-"MktSerId":"CITIUS33XXX",
-"MktDirect":"Y",
 "Service":"G01",
 "CurrencyCode":"USD"
 },
@@ -96,19 +83,6 @@
 "Country":"UNITED STATES OF AMERICA",
 "MktSerId":"UBSWUS33XXX",
 "MktDirect":"Y",
-"Service":"FIN"
-},
-{
-"MPDKey":"4729688",
-"Name":"UBS AG STAMFORD BRANCH",
-"Address":"WASHINGTON BOULEVARD, 600",
-"postalCode":"06901",
-"City":"STAMFORD",
-"State":"CT",
-"ISOCountry":"US",
-"Country":"UNITED STATES OF AMERICA",
-"MktSerId":"UBSWUS33XXX",
-"MktDirect":"Y",
 "Service":"G01",
 "CurrencyCode":"USD"
 },
@@ -138,18 +112,6 @@
 "MktDirect":"Y",
 "Service":"PCH",
 "CurrencyCode":"CHF"
-},
-{
-"MPDKey":"4761920",
-"Name":"CITIBANK N.A.",
-"Address":"13TH FLOOR CITIGROUP CENTRE 2 2 CANADA SQUARE CANARY WHARF",
-"postalCode":"E14 5LB",
-"City":"LONDON",
-"ISOCountry":"GB",
-"Country":"UNITED KINGDOM",
-"MktSerId":"CITIGB2LXXX",
-"MktDirect":"Y",
-"Service":"FIN"
 },
 {
 "MPDKey":"4761920",
@@ -631,16 +593,4 @@
 "MktDirect":"Y",
 "Service":"G01",
 "CurrencyCode":"ZAR"
-},
-{
-"MPDKey":"5811897",
-"Name":"CITIBANK COLOMBIA",
-"Address":"EDIFICIO CALLE CRA 9A",
-"postalCode":"111831",
-"City":"BOGOTA",
-"ISOCountry":"CO",
-"Country":"COLOMBIA",
-"MktSerId":"CITICOBBXXX",
-"MktDirect":"Y",
-"Service":"FIN"
 }]

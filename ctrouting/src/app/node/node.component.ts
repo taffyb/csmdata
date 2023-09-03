@@ -20,7 +20,8 @@ export class NodeComponent {
     switch (this.node.labels[0]) {
       case "FinancialInstitution":
         node=this.node as FinancialInstitutionNode;
-        text=`${node.properties.name}`;
+        text=`${node.properties.name}
+         (${node.properties.city})`;
         break;
       case "CSMAgent":
         node=this.node as CSMAgentNode;
@@ -28,7 +29,8 @@ export class NodeComponent {
         break;
         case "CSMParticipant":
           node=this.node as CSMParticipantNode;
-          text=`${node.properties.id}\n ${node.properties.currency?'in '+node.properties.currency:''}`;
+          text=`${node.properties.id?node.properties.id:"Cor"}
+          ${node.properties.currency?'in '+node.properties.currency:''}`;
           break;
 
       default:

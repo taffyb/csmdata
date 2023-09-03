@@ -7,4 +7,15 @@
 "Holder.City":"LONDON",
 "Service":"COR",
 "Usage":"PAY"
+},
+{
+"MPDKey_Owner":"684165",
+"Owner.Name":"UBS SWITZERLAND AG",
+"Owner.City":"ZUERICH",
+"MPDKey_Holder":"44514",
+"Holder.Name":"UBS EUROPE SE",
+"Holder.City":"RANKFURT AM MAIN",
+"Service":"COR",
+"Currency":"EUR",
+"Usage":"PAY"
 }]

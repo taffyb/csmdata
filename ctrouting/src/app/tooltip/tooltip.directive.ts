@@ -51,7 +51,7 @@ export class TooltipDirective {
   }
 
   destroy(): void {
-    if (this.componentRef !== null) {
+    if (this.componentRef !=null) {
       if(this.componentRef.hostView !== null){
         this.appRef.detachView(this.componentRef.hostView);
       }

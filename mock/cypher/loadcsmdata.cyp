@@ -7,8 +7,9 @@
 MATCH (n) DETACH DELETE n;
 
 CREATE CONSTRAINT u_processingEntity_id IF NOT EXISTS FOR (pe:ProcessingEntity) REQUIRE pe.id IS UNIQUE;
+CREATE CONSTRAINT u_FinancialInstitution_id IF NOT EXISTS FOR (fi:FinancialInstitution) REQUIRE fi.id IS UNIQUE;
 CREATE CONSTRAINT u_CSMAgent_id IF NOT EXISTS FOR (agent:CSMAgent) REQUIRE agent.id IS UNIQUE;
-CREATE CONSTRAINT u_CSMParticipant_id IF NOT EXISTS FOR (cp:csmParticipant) REQUIRE (cp.bic, cp.iid) IS UNIQUE;
+CREATE CONSTRAINT u_CSMParticipant_id IF NOT EXISTS FOR (cp:csmParticipant) REQUIRE cp.id IS UNIQUE;
 CREATE CONSTRAINT u_processingEntity IF NOT EXISTS FOR (pe2:ProcessingEntity) REQUIRE (pe2.id, pe2.name) IS UNIQUE;
 CREATE CONSTRAINT u_currency_isoCode  IF NOT EXISTS FOR (c:Currency) REQUIRE c.isoCode IS UNIQUE;
 
@@ -53,63 +54,28 @@ UNWIND csmAgentCurrencies as csmAgentCurrency
 		SET s.limitType = limit.limitType,
 			s.limit		= limit.amount;
 			
-
-
-//Load CSMParticipants
+//Load FI 
 CALL apoc.load.json('https://'+$auth.user+':'+$auth.password+'@oxiktfha7b.execute-api.eu-west-2.amazonaws.com/default/participant')
 YIELD value
-WITH value.settings as CSMParticipants
-UNWIND CSMParticipants as Participant
-	MERGE (cp:CSMParticipant{id:Participant.payload.csmParticipantIdentifier})
+WITH value.settings as FIs
+UNWIND FIs as FI
+	MERGE (fi:FinancialInstitution{id:FI.payload.csmParticipantIdentifier})
 	ON CREATE SET 
-		cp.processingEntity     = Participant.processingEntity,
-		cp.name     			= Participant.payload.participantName,
-		cp.branchId     		= Participant.payload.industryFields.branchId,
-		cp.headOffice     		= Participant.payload.industryFields.headOffice,
-		cp.iidType  	   		= Participant.payload.industryFields.iidType,
-		cp.sic     				= Participant.payload.industryFields.sic,
-		cp.euroSic     			= Participant.payload.industryFields.euroSic,
-		cp.sicBic     			= Participant.payload.industryFields.sicBic,
-		cp.sicIid     			= Participant.payload.industryFields.sicIid,
-		cp.newIid     			= Participant.payload.industryFields.newIid,
-		cp.domicileAddress  	= Participant.payload.domicileAddress,
-		cp.city     			= Participant.payload.participantCity,
-		cp.postalCode     		= Participant.payload.postalCode,
-		cp.postalAddress    	= Participant.payload.postalAddress,
-		cp.participantCountry   = Participant.payload.participantCountry
-	WITH cp, Participant
-	MERGE (csmAgent:CSMAgent{agentId:Participant.payload.csmAgentId})
-	MERGE (cp)-[of:PARTICIPANT_OF]->(csmAgent)
-		SET of.type = Participant.payload.participantType;
-
-
-//Load SCT Inst CSMAgent
-MERGE (a:CSMAgent{id:"001-SCT-Inst"})
-ON CREATE SET 
-	a.name 		= "SEPA Inst Credit Transfer",
-	a.type 		= "RTGS",
-	a.agentId  	= "SCT-Inst",
-	a.isInstant	= true
-WITH a
-MATCH (pe:ProcessingEntity{id:"001"})
-MERGE (c:Currency{isoCode:"EUR"})
-MERGE (pe)-[:USES]->(a)
-MERGE (a)-[:SUPPORTS]->(c);
-
-//Load SCT Inst Participants
-CALL apoc.load.json('https://'+$auth.user+':'+$auth.password+'@oxiktfha7b.execute-api.eu-west-2.amazonaws.com/default/sct-inst')
-YIELD value
-WITH value as SCTParticipants
-UNWIND SCTParticipants as Participant
-	MERGE (cp:CSMParticipant{id:randomUUID()})
-	ON CREATE SET 
-		cp.name     			= Participant.ParticipantName,
-		cp.Bic     				= Participant.BIC,
-		cp.domicileAddress  	= Participant.Address,
-		cp.city     			= Participant.City,
-		cp.participantCountry   = Participant.Country
-	WITH cp, Participant
-	MERGE (csmAgent:CSMAgent{agentId:"SCT-Inst"})
-	MERGE (cp)-[of:PARTICIPANT_OF]->(csmAgent)
-		SET of.type = Participant.payload.participantType;
-
+		fi.processingEntity     = FI.processingEntity,
+		fi.name     			= FI.payload.participantName,
+		fi.branchId     		= FI.payload.industryFields.branchId,
+		fi.headOffice     		= FI.payload.industryFields.headOffice,
+		fi.domicileAddress  	= FI.payload.domicileAddress,
+		fi.city     			= FI.payload.participantCity,
+		fi.postalCode     		= FI.payload.postalCode,
+		fi.postalAddress    	= FI.payload.postalAddress,
+		fi.country              = FI.payload.participantCountry
+	WITH FI,fi, (CASE 
+				WHEN FI.payload.csmAgentId="SIC" THEN FI.payload.industryFields.sicIid 
+				WHEN FI.payload.csmAgentId="euroSIC" THEN FI.payload.industryFields.sicBic 
+				WHEN FI.payload.csmAgentId="UbsCh" THEN FI.payload.industryFields.sicBic 
+			  END) as participantId
+	CREATE (p:CSMParticipant{id:participantId})
+		SET p.of=FI.payload.csmAgentId
+	MERGE (a:CSMAgent{agentId:FI.payload.csmAgentId})
+	MERGE (fi)-[:DIRECT]->(p)-[:OF]->(a);

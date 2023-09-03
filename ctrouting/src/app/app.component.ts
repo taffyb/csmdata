@@ -23,7 +23,7 @@ export class AppComponent {
   sourceParticipants$!:Observable<CSMParticipant[]>;
   targetParticipants$!:Observable<CSMParticipant[]>;
   paymentRoutes$!:Observable<PaymentRoute[]>|null;
-  selectedCurrency:string="CHF";
+  selectedCurrency:string="";
   sourceParticipant!:CSMParticipant;
   targetParticipant!:CSMParticipant;
   csmSelectionOrder!:CSMSelectionOrder;
@@ -40,14 +40,12 @@ export class AppComponent {
   }
   onFindPayment(){
     const params:Parameters = new Parameters();
-    params.sourceId = this.sourceParticipant.bankIdentifier;
-    params.targetId = this.targetParticipant.bankIdentifier;
-    params.csmSelectionOrder = new CSMSelectionOrder();
-    params.csmSelectionOrder.transferCurrency=this.selectedCurrency;
-    params.csmSelectionOrder.serviceLevel = this.selectedServiceLevel;
-    params.csmSelectionOrder.csmAgentOptions = this.csmSelectionOrder.csmAgentOptions;
+    if(this.sourceParticipant && this.targetParticipant){
+      params.sourceId = this.sourceParticipant.bankIdentifier;
+      params.targetId = this.targetParticipant.bankIdentifier;
+    }
 
-    console.log(`Parameters: ${JSON.stringify(params,null,2)}`);
+    // console.log(`Parameters: ${JSON.stringify(params,null,2)}`);
     this.paymentRoutes$=null;
     this.paymentRoutes$= this.routingSvc.findRoutes(params);
   }
@@ -55,30 +53,26 @@ export class AppComponent {
     let presets:Parameters[]=[];
     presets.push(
       {
+        sourceId:"UBSWCHZH89D",
+        targetId:"UBSWCHZH70A",
+        description:"Two UBS branches only accessible OnUs"
+      },
+      {
         sourceId:"UBSWCHZH93A",
         targetId:"UBSWCHZH70A",
-        processingEntityId:"001",
-        csmSelectionOrder:{
-          transferCurrency:"CHF",
-          serviceLevel:"INST",
-          paymentType:"ACTR",
-          csmAgentOptions: [
-            {
-              order: 1,
-              csmAgentId: "UbsCh"
-            }
-          ]
-        }
+        description:"Two UBS branches participants of OnUs and SICInst. Priority to OnUs"
+      },
+      {
+        sourceId:"UBSWCHZH93A",
+        targetId:"UBSWCHZH70A",
+        description:"Two UBS branches participants of OnUs and SICInst. Priority to SICInst to demonstrate changing Order"
       }
     );
     return presets;
   }
   selectPreset(p:Parameters){
-    this.selectedCurrency=p.csmSelectionOrder.transferCurrency;
-    this.selectedServiceLevel=p.csmSelectionOrder.serviceLevel;
     this.targetParticipant=this.csmSvc.getParticipant(p.targetId);
     this.sourceParticipant=this.csmSvc.getParticipant(p.sourceId);
-    this.csmSelectionOrder = p.csmSelectionOrder;
   }
 }
 
